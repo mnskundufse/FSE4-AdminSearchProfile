@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Admin.SearchProfileService.Test
 {
-    public class UnitTest1
+    public class SearchProfileControllerTest
     {
         [Fact]
         public void Test1()
