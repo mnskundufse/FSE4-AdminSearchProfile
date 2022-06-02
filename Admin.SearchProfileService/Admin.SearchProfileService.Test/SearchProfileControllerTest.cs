@@ -17,7 +17,7 @@ using Admin.SearchProfileService.CustomException;
 
 namespace Admin.SearchProfileService.Test
 {
-    public class SearchBusinessControllerTest
+    public class SearchProfileControllerTest
     {
         
         Mock<ISearchProfileBusiness> _mockBusiness = new Mock<ISearchProfileBusiness>();

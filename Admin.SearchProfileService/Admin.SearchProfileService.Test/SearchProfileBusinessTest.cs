@@ -17,7 +17,7 @@ using Admin.SearchProfileService.CustomException;
 
 namespace Admin.SearchProfileService.Test
 {
-    public class SearchProfileControllerTest
+    public class SearchProfileBusinessTest
     {
         readonly Mock<ISearchProfileRepository> _mockRepo = new Mock<ISearchProfileRepository>();
         [Fact]
