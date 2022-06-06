@@ -1,19 +1,10 @@
-﻿using System;
-using Xunit;
-using Moq;
-using Admin.SearchProfileService.Business.Contracts;
-using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using Confluent.Kafka;
-using Admin.SearchProfileService.Controllers;
-using Admin.SearchProfileService.Model;
-using Admin.SearchProfileService.Kafka;
-using System.Threading;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
 using Admin.SearchProfileService.Business.Implementation;
-using Admin.SearchProfileService.Repository.Contracts;
-using Admin.SearchProfileService;
 using Admin.SearchProfileService.CustomException;
+using Admin.SearchProfileService.Model;
+using Admin.SearchProfileService.Repository.Contracts;
+using Moq;
+using Xunit;
 
 namespace Admin.SearchProfileService.Test
 {
