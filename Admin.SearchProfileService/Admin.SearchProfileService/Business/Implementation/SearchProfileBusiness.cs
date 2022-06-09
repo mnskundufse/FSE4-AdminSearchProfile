@@ -32,7 +32,7 @@ namespace Admin.SearchProfileService.Business.Implementation
             bool isValidated = true;
             if (string.Compare(criteria.ToUpper(), "NAME") == 0)
             {
-                if (string.IsNullOrEmpty(criteriaValue) || !Regex.IsMatch(criteriaValue, @"^[a-zA-Z0-9]*$"))
+                if (string.IsNullOrEmpty(criteriaValue) || !Regex.IsMatch(criteriaValue, @"^[a-zA-Z0-9 ]*$"))
                 {
                     response.Status.Message = "Criteria value for Name is not valid. Initial characters of name can be provided.";
                     isValidated = false;

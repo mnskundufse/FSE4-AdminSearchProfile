@@ -2,7 +2,7 @@
 namespace Admin.SearchProfileService.CustomException
 {
     [Serializable]
-    class InvalidSearchCriteriaException : Exception
+    public class InvalidSearchCriteriaException : Exception
     {
         public InvalidSearchCriteriaException() { }
 

@@ -67,8 +67,6 @@ namespace Admin.SearchProfileService.Repository.Implementation
             }
             else if (string.Compare(criteria.ToUpper(), "ASSOCIATE ID") == 0)
             {
-              
-
                 if (perPage.HasValue && perPage.Value > 0 && page.HasValue && page.Value > 0)
                 {
                     List<UserProfileForAdminDatabase> userProfileList = await _context.UserProfileForAdminDatabase
@@ -163,6 +161,11 @@ namespace Admin.SearchProfileService.Repository.Implementation
 
             if (userProfileDetails != null && userProfileDetails.XTotal > 0)
             {
+                userProfileDetails.UserList.ToList().ForEach(u =>
+                {
+                    u.TechnicalSkillDetails = u.TechnicalSkillDetails.OrderByDescending(o => Convert.ToInt32(o.SkillValue)).ToList();
+                    u.NonTechnicalSkillDetails = u.NonTechnicalSkillDetails.OrderByDescending(o => Convert.ToInt32(o.SkillValue)).ToList();
+                });
                 response.Result = userProfileDetails;
             }
             else
@@ -189,8 +192,8 @@ namespace Admin.SearchProfileService.Repository.Implementation
                 AssociateId = userProfile.AssociateId,
                 Mobile = userProfile.Mobile,
                 Email = userProfile.Email,
-                TechnicalSkillDetails = techSkillDetails.OrderByDescending(o => Convert.ToInt32(o.SkillValue)).ToList(),
-                NonTechnicalSkillDetails = nonTechSkillDetails.OrderByDescending(o => Convert.ToInt32(o.SkillValue)).ToList(),
+                TechnicalSkillDetails = techSkillDetails.ToList(),
+                NonTechnicalSkillDetails = nonTechSkillDetails.ToList(),
                 CreatedDate = userProfile.CreatedDate,
                 UpdatedDate = userProfile.UpdatedDate
             };
@@ -217,9 +220,9 @@ namespace Admin.SearchProfileService.Repository.Implementation
                 AssociateId = userItem.AssociateId,
                 Mobile = userItem.Mobile,
                 Email = userItem.Email,
-                TechnicalSkillDetails = techSkillDetails.OrderByDescending(o => Convert.ToInt32(o.SkillValue)).ToList(),
-                NonTechnicalSkillDetails = nonTechSkillDetails.OrderByDescending(o => Convert.ToInt32(o.SkillValue)).ToList(),
-                CreatedDate = userProfile.CreatedDate,
+                TechnicalSkillDetails = techSkillDetails.ToList(),
+                NonTechnicalSkillDetails = nonTechSkillDetails.ToList(),
+                CreatedDate = userItem.CreatedDate,
                 UpdatedDate = userProfile.UpdatedDate
             };
 
